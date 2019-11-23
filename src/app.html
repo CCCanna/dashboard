@@ -1,0 +1,40 @@
+<template>
+  <style>
+    body {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    h1 {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    ul {
+      list-style: none;
+    }
+
+    li>div {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      text-align: left;
+    }
+  </style>
+  <h1>${message}</h1>
+  <form submit.trigger="addNotice()">
+    <input type="text" value.bind="todoDescription">
+    <button type="submit" disabled.bind="!todoDescription">添加</button>
+  </form>
+  <ul>
+    <li repeat.for="notice of noticeData">
+      <div>
+        <h3>${notice.title}</h3>
+        <span>
+          ${notice.message}
+        </span>
+      </div>
+    </li>
+  </ul>
+</template>
